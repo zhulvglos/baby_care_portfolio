@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI PM Portfolio Interactive Viewer</title>
+  <link rel="stylesheet" href="./interactive.css">
+</head>
+<body>
+  <main class="portfolio-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <strong>ZJ</strong>
+        <span>AI PM PORTFOLIO</span>
+      </div>
+
+      <nav class="chapter-nav" aria-label="作品集章节">
+        <button class="chapter active" data-slide="1">
+          <span>Positioning</span>
+          <em>01 - 04</em>
+        </button>
+        <button class="chapter" data-slide="5">
+          <span>CabinPilot</span>
+          <em>05 - 10</em>
+        </button>
+        <button class="chapter" data-slide="11">
+          <span>BuildTrace</span>
+          <em>11 - 16</em>
+        </button>
+        <button class="chapter" data-slide="17">
+          <span>CribGuard</span>
+          <em>17 - 21</em>
+        </button>
+        <button class="chapter" data-slide="22">
+          <span>Method</span>
+          <em>22</em>
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <span id="progressText">01 / 22</span>
+        <div class="progress-track"><i id="progressBar"></i></div>
+      </div>
+    </aside>
+
+    <section class="viewer">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">AI PM Portfolio Static Design Draft</p>
+          <h1 id="slideTitle">Positioning</h1>
+        </div>
+        <div class="pager">
+          <button class="demo-button" id="playDemo" aria-label="播放动态演示">播放演示</button>
+          <select class="speed-select" id="speedSelect" aria-label="自动播放速度">
+            <option value="3500">快</option>
+            <option value="5200" selected>标准</option>
+            <option value="7600">慢</option>
+          </select>
+          <button class="icon-button" id="prevSlide" aria-label="上一页">‹</button>
+          <span id="pageCount">01 / 22</span>
+          <button class="icon-button" id="nextSlide" aria-label="下一页">›</button>
+        </div>
+      </header>
+
+      <section class="stage-wrap">
+        <button class="edge-button left" id="prevEdge" aria-label="上一页">‹</button>
+        <figure class="slide-frame">
+          <div class="slide-progress" id="slideTimer"></div>
+          <img id="slideImage" src="../dist/previews/slide_01.png" alt="AI PM Portfolio slide 01">
+          <section class="animated-slide-seven" id="animatedSlideSeven" aria-label="第 7 页动态工作流">
+            <header class="workflow-head">
+              <div>
+                <p>AGENT WORKFLOW</p>
+                <h2>我把民宿扩建需求，设计成一条可解释的 <span>Agent</span> 工作流。</h2>
+                <h3>这不是把 LLM 当万能生成器，而是把真实项目经验拆成可解释规则：每一步都有输入依据、判断逻辑和交付边界。</h3>
+              </div>
+              <em>07 / 22</em>
+            </header>
+
+            <nav class="workflow-trail" aria-label="第 7 页流程">
+              <button class="trail-chip active" data-flow="1">MoveRenovateAI</button>
+              <button class="trail-chip" data-flow="2">业主需求输入</button>
+              <button class="trail-chip" data-flow="3">产品选型</button>
+              <button class="trail-chip" data-flow="4">空间配置</button>
+              <button class="trail-chip" data-flow="5">交付任务规划</button>
+            </nav>
+
+            <div class="workflow-board">
+              <svg class="workflow-lines" viewBox="0 0 1600 620" preserveAspectRatio="none" aria-hidden="true">
+                <ellipse class="flow-orbit" cx="730" cy="270" rx="330" ry="200"></ellipse>
+                <path class="flow-path path-blue" d="M 280 350 C 245 155 425 155 575 198 C 650 220 670 245 705 285"></path>
+                <path class="flow-path path-cyan" d="M 700 285 C 845 245 1038 262 1150 360"></path>
+                <path class="flow-path path-orange" d="M 1128 348 C 1245 348 1332 348 1440 348"></path>
+                <path class="flow-path path-violet" d="M 330 410 C 455 570 615 565 690 486"></path>
+                <path class="flow-path path-magenta" d="M 790 515 C 1070 606 1384 522 1478 410"></path>
+                <path class="flow-path path-purple" d="M 690 286 C 690 350 690 414 690 486"></path>
+                <g class="flow-number number-02"><circle cx="430" cy="160" r="18"></circle><text x="430" y="166">02</text></g>
+                <g class="flow-number number-03"><circle cx="915" cy="184" r="18"></circle><text x="915" y="190">03</text></g>
+                <g class="flow-number number-04"><circle cx="1320" cy="350" r="18"></circle><text x="1320" y="356">04</text></g>
+                <g class="flow-number number-05"><circle cx="690" cy="486" r="18"></circle><text x="690" y="492">05</text></g>
+              </svg>
+
+              <button class="flow-play" id="flowPlay" aria-label="播放第 7 页工作流动画"><span></span></button>
+
+              <article class="flow-card flow-input active" data-flow-card="1">
+                <b>01 需求输入</b>
+                <strong>业主自然语言需求</strong>
+                <p>- 扩建目标：新增客房 / 提升接待能力<br>- 场地条件：面积、位置、施工限制<br>- 运营偏好：自助入住、低人力维护、智能控制</p>
+              </article>
+
+              <article class="flow-card flow-reason" data-flow-card="2">
+                <b>02 需求解析</b>
+                <strong>把模糊表达转成结构化参数</strong>
+                <p>- 提取面积、客群、风格、预算层级<br>- 判断 38㎡ + 6㎡ 扩建的约束边界<br>- 识别无人化运营、智能化、交付周期等关键词</p>
+              </article>
+
+              <article class="flow-card flow-match" data-flow-card="3">
+                <b>03 产品匹配</b>
+                <strong>匹配 Capsule Cabin 产品与空间模块</strong>
+                <p>- 推荐 Capsule Cabin S / M<br>- 生成卧室、卫浴、休闲区、收纳等空间模块<br>- 输出室内配置与基础智能设备建议</p>
+              </article>
+
+              <article class="flow-card flow-delivery" data-flow-card="4">
+                <b>04 交付规划</b>
+                <strong>把配置方案排成可执行交付看板</strong>
+                <p>- 生成 7 个交付阶段<br>- 为每阶段生成任务、验收点、负责人视角<br>- 标记现场风险：运输、吊装、水电、防水、调试</p>
+              </article>
+
+              <article class="flow-card flow-boundary" data-flow-card="5">
+                <b>05 能力边界</b>
+                <strong>明确 AI 方案的可用范围</strong>
+                <p>- 预算与周期仅做示例区间<br>- 不替代正式设计、报价、施工组织<br>- 保留人工确认、专业复核和版本迭代入口</p>
+              </article>
+
+              <aside class="flow-note">
+                <b>边界声明</b>
+                <p>配置、预算和周期均为示例，不构成正式设计、报价、施工组织或工程承诺。</p>
+              </aside>
+            </div>
+          </section>
+
+          <section class="animated-slide-eight" id="animatedSlideEight" aria-label="第 8 页动态推荐结果">
+            <header class="demo-head">
+              <div>
+                <p>DEMO EVIDENCE</p>
+                <h2>Demo 不是展示页面，而是把产品判断做成<span>可操作体验</span>。</h2>
+                <h3>PoC 方案成果：动态推荐页 —— 验证 AI Agent 是否能给出结构化、可信的推荐方案，并支持业务快速决策。</h3>
+              </div>
+              <em>08 / 22</em>
+            </header>
+
+            <div class="demo-board">
+              <section class="demo-product-panel" data-demo-step="2">
+                <div class="demo-panel-top">
+                  <button>返回</button>
+                  <div>
+                    <p>PoC 方案成果 / 动态推荐页</p>
+                    <h3>推荐方案：38m² 单体配置</h3>
+                    <span>主线展示当前推荐方案，同时保留 38m² / 56m² 的决策对比。</span>
+                  </div>
+                  <strong>进入 Agent 规划台</strong>
+                </div>
+
+                <div class="recommendation-card">
+                  <div>
+                    <p>Recommendation</p>
+                    <h4>Capsule Cabin S / 38m² 单体</h4>
+                    <span>输入筛选条件，当前最优方案，优先匹配 38m² 单体产品。</span>
+                    <div class="metric-row">
+                      <b>38m²<small>建筑面积</small></b>
+                      <b>Cabin S<small>产品型号</small></b>
+                      <b>低<small>交付复杂度</small></b>
+                    </div>
+                    <div class="tag-line">
+                      <i>✓ 优先推荐方案：匹配度高、结构合理性好</i>
+                      <em>1-4人 / 标准房 / 自助入住</em>
+                    </div>
+                  </div>
+                  <img src="../assets/cabin_interior_56.png" alt="Cabin interior">
+                </div>
+
+                <div class="decision-card" data-demo-step="3">
+                  <p>Decision Logic</p>
+                  <h4>38m² / 56m² 决策对比</h4>
+                  <div class="compare-row">
+                    <figure>
+                      <img src="../assets/cabin_axo_38.png" alt="38m² 单体舱体">
+                    </figure>
+                    <span>38m² 单体<br><small>推荐约束</small></span>
+                    <ul>
+                      <li>空间利用率高</li>
+                      <li>成本最优</li>
+                      <li>适合短期高频周转</li>
+                    </ul>
+                    <figure>
+                      <img src="../assets/cabin_axo_56.png" alt="56m² 拼装舱体">
+                    </figure>
+                    <span>56m² 拼装<br><small>候选</small></span>
+                    <ul>
+                      <li>空间更宽敞</li>
+                      <li>适合家庭 / 长住</li>
+                      <li>造价更高</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <aside class="demo-insights">
+                <article class="insight-card blue" data-demo-step="1">
+                  <i>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h13"></path><path d="m12 7 5 5-5 5"></path></svg>
+                  </i>
+                  <div>
+                    <p>INPUT 输入</p>
+                    <h3>快捷模板降低体验门槛</h3>
+                    <span>面试官不用理解全部背景，也能一键走完整个 Agent 流程。</span>
+                  </div>
+                </article>
+                <article class="insight-card gold" data-demo-step="4">
+                  <i>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"></path><path d="M14 3v5h5"></path><path d="M10 12h6M10 16h6"></path></svg>
+                  </i>
+                  <div>
+                    <p>OUTPUT 输出</p>
+                    <h3>结果卡而非长文本</h3>
+                    <span>推荐产品、面积、客群、运营、设备和交付阶段被结构化呈现。</span>
+                  </div>
+                </article>
+                <article class="insight-card cyan" data-demo-step="5">
+                  <i>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v5"></path><path d="M12 15v5"></path><path d="M5 20h14"></path><path d="M8 9h8v6H8z"></path><path d="M5 12H3"></path><path d="M21 12h-2"></path></svg>
+                  </i>
+                  <div>
+                    <p>EXPLAINABILITY 规则可解释</p>
+                    <h3>规则命中可见</h3>
+                    <span>让 AI 给出看起来不是“猜的”，而是带有证据链和人工确认边界。</span>
+                  </div>
+                </article>
+              </aside>
+
+              <footer class="demo-boundary" data-demo-step="6">
+                <b>边界声明：</b>
+                <span>配置、预算和周期均为示例，不构成正式设计、报价、施工组织或工程承诺。</span>
+                <em>业主需求输入 → 产品选型 → 空间配置 → 智能设备建议 → 交付任务规划</em>
+              </footer>
+            </div>
+          </section>
+
+          <section class="animated-slide-nine" id="animatedSlideNine" aria-label="? 9 ???????">
+            <header class="architecture-head">
+              <div>
+                <p>OUTPUT ARCHITECTURE</p>
+                <h2>???????????? AI ???<span>????</span>?</h2>
+                <h3>Agent ????????????????????????????????????????</h3>
+              </div>
+              <em>09 / 22</em>
+            </header>
+
+            <div class="architecture-flow">
+              <article class="arch-step active" data-arch-step="1"><i>?</i><b>01 ????</b><span>???? / ????</span><small>????????<br>?????????<br>?????????</small></article>
+              <article class="arch-step" data-arch-step="2"><i>?</i><b>02 ????</b><span>Agent ?????</span><small>?????????<br>??????<br>???????</small></article>
+              <article class="arch-step" data-arch-step="3"><i>?</i><b>03 ?????</b><span>???????JSON?</span><small>?????????<br>?????????<br>?????????</small></article>
+              <article class="arch-step" data-arch-step="4"><i>?</i><b>04 ????</b><span>???????</span><small>???????<br>?????????<br>?????????</small></article>
+              <article class="arch-step" data-arch-step="5"><i>?</i><b>05 ????</b><span>???????</span><small>????????<br>????????<br>???????</small></article>
+            </div>
+
+            <div class="architecture-board">
+              <section class="json-panel" data-arch-reveal="1">
+                <h3>??????Configuration JSON?</h3>
+                <p>?? AIChat.vue / createRuleBasedConfiguration ????????</p>
+                <pre><code>01 const createRuleBasedConfiguration = (message) => {
+02   const isFamily = shouldUseFamilyProduct(message)
+03   return {
+04     request_id: "REQ-20240615-001",
+05     project_type: "holiday_homestay",
+06     input: { area: 38, guests: 4 },
+07     product_system: "Capsule Cabin",
+08     recommended_product: "Capsule Cabin S",
+09     recommended_area_sqm: 38,
+10     target_guests: "1-4? / ????",
+11     operation_mode: "???? + ????",
+12     space_modules: ["???", "??", "???"],
+13     smart_devices: ["????", "??", "??"],
+14     recommendation_basis: rules,
+15     delivery_phases: createRuleBasedDelivery(plan)
+16   }
+17 }</code></pre>
+                <div class="schema-index">
+                  <span class="blue">????<small>?????????</small></span>
+                  <span class="cyan">????<small>?????????</small></span>
+                  <span class="violet">????<small>??????????</small></span>
+                  <span class="gold">????<small>?????????</small></span>
+                  <span class="pink">????<small>?????????</small></span>
+                </div>
+              </section>
+
+              <section class="mapping-panel" data-arch-reveal="2">
+                <h3>??? UI ????? Demo ???</h3>
+                <div class="mapping-grid">
+                  <article data-map-row="1"><b>???? ? ??????</b><code>{ "primary_product": "Capsule Cabin S", "area": 38, "guests": 4 }</code></article>
+                  <article data-map-row="2"><b>???? ? ????</b><code>{ "smart_devices": [{"type":"access_control","level":"L2"}] }</code></article>
+                  <article data-map-row="3"><b>???? ? ????</b><code>{ "delivery_plan": { "phases": 7, "current_phase": 3, "eta_days": 28 } }</code></article>
+                </div>
+                <div class="mapping-arrows" aria-hidden="true"><span>?</span><span>?</span><span>?</span></div>
+                <div class="ui-preview">
+                  <div class="product-chip">????</div>
+                  <div class="match-badge">???<br><b>94%</b></div>
+                  <img src="../assets/cabin_interior_56.png" alt="????????">
+                  <h4>Capsule Cabin S / 38m?</h4>
+                  <div class="mini-tags"><span>6???</span><span>????</span><span>???? L2</span></div>
+                  <section class="ui-benefits">
+                    <b>????</b>
+                    <p>? ?????????<br>? ??????<br>? ????????<br>? ??????</p>
+                    <span>?? L2</span><span>?? L2</span><span>?? L1</span><span>?? L1</span>
+                  </section>
+                  <div class="delivery-board">
+                    <b>???? <strong>?? 3 / 7</strong></b>
+                    <div class="delivery-line"><i></i><i></i><i></i><i class="active"></i><i></i><i></i><i></i></div>
+                    <em>???? 28?</em><small>????? 2024-06-15</small>
+                  </div>
+                </div>
+              </section>
+
+              <footer class="value-panel" data-arch-reveal="3">
+                <b><i>?</i>????</b>
+                <span>??????? Schema?Agent ???????????????????????????????????????</span>
+                <strong><i>?</i>????<br><small>??????????? 80%+</small></strong>
+                <strong><i>?</i>???<br><small>??????? 94%</small></strong>
+                <strong><i>?</i>???<br><small>??????????</small></strong>
+                <strong><i>?</i>????<br><small>????????? 65%+</small></strong>
+              </footer>
+            </div>
+          </section>
+
+          <section class="animated-slide-ten" id="animatedSlideTen" aria-label="第 10 页动态价值闭环">
+            <header class="value-head">
+              <div>
+                <p>VALUE & IMPACT</p>
+                <h2>这个 PoC 验证的不是模型能力，<br>而是从需求到交付的<span>产品闭环和可复制价值</span>。</h2>
+                <h3>将建筑与装配式领域的经验沉淀为规则，让 Agent 连接需求与交付，提升效率与标准化水平。</h3>
+              </div>
+              <em>10 / 22</em>
+            </header>
+
+            <section class="value-transform">
+              <div class="before-lane">
+                <h3>BEFORE 传统流程（人工驱动，沟通成本高）</h3>
+                <div class="process-row">
+                  <article data-value-step="1"><b>需求沟通</b><span>多轮沟通，信息反复确认</span></article>
+                  <article data-value-step="2"><b>方案设计</b><span>建筑师手动配置方案与参数</span></article>
+                  <article data-value-step="3"><b>修改调整</b><span>反复修改，版本混乱</span></article>
+                  <article data-value-step="4"><b>成本报价</b><span>人工计算，易出错</span></article>
+                  <article data-value-step="5"><b>交付执行</b><span>任务拆解到人，进度难跟踪</span></article>
+                </div>
+              </div>
+
+              <div class="agent-core" data-value-step="6">
+                <i>🤖</i>
+                <strong>AGENT</strong>
+              </div>
+
+              <div class="after-lane">
+                <h3>AFTER 智能管家（Agent 驱动，效率更高，标准化可复制）</h3>
+                <div class="process-row after">
+                  <article data-value-step="7"><b>自然语言输入</b><span>一句话描述需求，快速理解意图</span></article>
+                  <article data-value-step="8"><b>自动生成方案</b><span>Agent 匹配规则，生成最优配置方案</span></article>
+                  <article data-value-step="9"><b>交付任务生成</b><span>自动生成阶段任务，清晰可执行</span></article>
+                  <article data-value-step="10"><b>进度跟踪</b><span>全流程可视化，风险提前预警</span></article>
+                </div>
+              </div>
+            </section>
+
+            <section class="highlight-panel">
+              <h3>核心价值（Value Highlights）</h3>
+              <div class="highlight-grid">
+                <article data-value-step="11"><b>效率提升</b><span>减少重复沟通与手动配置时间</span><strong data-count="70">0%+</strong><em>方案生成效率提升</em></article>
+                <article data-value-step="12"><b>配置标准化</b><span>基于规则与经验，输出统一、可复用方案</span><strong data-count="90">0%+</strong><em>配置规范覆盖率</em></article>
+                <article data-value-step="13"><b>交付可复制</b><span>任务自动拆解，交付流程可标准化落地</span><strong data-count="85">0%+</strong><em>任务生成准确率</em></article>
+                <article data-value-step="14"><b>风险可控</b><span>规则前置，风险提前识别与拦截</span><strong data-label="3 大类">0</strong><em>关键风险提前识别</em></article>
+              </div>
+            </section>
+
+            <section class="source-panel">
+              <b>价值来源：</b>
+              <div class="source-chain">
+                <span>已建项目经验</span>
+                <span>产品规格库</span>
+                <span>施工与交付规则</span>
+                <span>行业知识与最佳实践</span>
+                <strong>规则引擎</strong>
+                <strong>Agent 智能管家</strong>
+                <strong>产品与交付价值</strong>
+              </div>
+              <p>让专业经验结构化，让 AI 辅助专业决策，让产品配置与交付更高效、更可靠、更可复制。</p>
+            </section>
+          </section>
+          <section class="animated-slide-twelve" id="animatedSlideTwelve" aria-label="slide 12 animated detail"></section>
+          <section class="animated-slide-thirteen" id="animatedSlideThirteen" aria-label="slide 13 animated agents"></section>
+          <section class="animated-slide-fourteen" id="animatedSlideFourteen" aria-label="slide 14 animated workflow"></section>
+          <section class="animated-slide-fifteen" id="animatedSlideFifteen" aria-label="slide 15 animated evidence chain"></section>
+          <section class="animated-slide-sixteen" id="animatedSlideSixteen" aria-label="slide 16 animated PM value"></section>
+          <section class="animated-slide-eighteen" id="animatedSlideEighteen" aria-label="slide 18 animated product scope"></section>
+          <section class="animated-slide-nineteen" id="animatedSlideNineteen" aria-label="slide 19 animated demo evidence"></section>
+          <section class="animated-slide-twenty" id="animatedSlideTwenty" aria-label="slide 20 animated dual workflow"></section>
+          <section class="animated-slide-twentyone" id="animatedSlideTwentyone" aria-label="slide 21 animated boundary design"></section>
+        </figure>
+        <button class="edge-button right" id="nextEdge" aria-label="下一页">›</button>
+      </section>
+
+      <footer class="filmstrip" aria-label="页面缩略图">
+        <div class="thumbs" id="thumbs"></div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="./interactive.js"></script>
+</body>
+</html>
