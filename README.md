@@ -1,5 +1,11 @@
-﻿# Baby Care Portfolio
+# Seven-page interactive portfolio
 
-Interactive AI PM portfolio static site.
+Open `index.html` directly, or serve the folder with:
 
-Open `src/interactive.html` or deploy the repository with GitHub Pages.
+```powershell
+python -m http.server 8088
+```
+
+Then visit `http://localhost:8088`.
+
+Controls: mouse wheel, right-side chapter rail, arrow keys, Page Up/Down, or the autoplay button.
